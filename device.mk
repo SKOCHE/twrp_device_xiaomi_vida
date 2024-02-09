@@ -47,6 +47,12 @@ PRODUCT_PACKAGES += \
     update_verifier \
     update_engine_sideload
 
+# VNDK
+PRODUCT_TARGET_VNDK_VERSION := 31
+
+# API
+PRODUCT_SHIPPING_API_LEVEL := 31
+
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
@@ -75,3 +81,15 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service \
     libhealthd.$(TARGET_BOARD_PLATFORM)
+
+# libion & libxml2
+# VNDK-SP libion from vendor - Memory Allocator functions for ion - Library for interfacing with the ION driver
+# The libxml2 package contains libraries and utilities used for parsing XML files.
+
+TARGET_RECOVERY_DEVICE_MODULES += \
+    libion \
+    libxml2
+
+RECOVERY_LIBRARY_SOURCE_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
