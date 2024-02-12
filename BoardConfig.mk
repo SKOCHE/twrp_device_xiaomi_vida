@@ -169,7 +169,9 @@ TW_CUSTOM_BATTERY_POS := "790"
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 1200
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-TW_SKIP_ADDITIONAL_FSTAB := true
+# This device does not support fastboot boot
+TW_NO_FASTBOOT_BOOT := true
+TW_INCLUDE_FASTBOOTD := true
 # Crypto
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
